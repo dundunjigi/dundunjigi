@@ -1,6 +1,7 @@
 # 든든지기 — GLP-1 투약 단계별 식사 코치
 
-카카오테크 캠퍼스 4기 2단계 팀 프로젝트 · 충남대 5팀 모노레포.
+카카오테크 캠퍼스 4기 2단계 팀 프로젝트(충남대 5팀)에서 출발해, 일부 팀원이 이어서 고도화하는 모노레포.
+원본 저장소(동결): https://github.com/kakaotechcampus-4/ktc4-chungnam-5 — 로컬에서는 `upstream` 원격으로 둔다.
 식사 사진 → AI 음식 인식 → 투약 단계별 Q/Q/S 점수 + 피드백을 주는 Android 앱.
 
 - 프로젝트 소개 · 로컬 실행 · 배포: [README.md](README.md)
@@ -90,18 +91,17 @@ hotfix/{요약}                     hotfix/fe-checkin-photo
 ## PR · 머지 흐름
 
 ```
-작업 브랜치 ──PR──▶ develop ──(스테이징)──▶ develop → main PR(멘토 리뷰) ──▶ 버전 태그 push ──▶ 운영 배포
+작업 브랜치 ──PR──▶ develop ──(스테이징)──▶ develop → main PR(팀 리뷰) ──▶ 버전 태그 push ──▶ 운영 배포
 ```
 
 - `main` · `develop` 에 직접 push 하지 않는다.
 - 팀 내부 PR(→ `develop`)은 같은 파트 1명 승인 후 머지한다.
-- 멘토 리뷰용 PR 은 **base 가 `main`** 이어야 멘토가 자동 지정된다 (GitHub 기본값은 `develop`).
+- 릴리스 PR(`develop` → `main`)은 base 를 `main` 으로 직접 바꿔서 연다 (GitHub 기본값은 `develop`).
 - `hotfix/…` 는 `develop` 으로 PR 하고, 운영에 바로 내보내야 하면 `main` 에도 PR 한다.
 - 운영 배포는 `main` 의 버전 태그(`vYYYY.MM.DD`)로만 한다 — [README.md](README.md#배포).
 
 ## 건드리지 않는 것
 
-- `.github/CODEOWNERS` 의 [운영진 영역], `.github/workflows/` 의 `assign-mentor` · `notify-discord` · `convention-check` — 운영진 소유. 멘토 배정 · 알림이 깨진다.
 - `.env` · `.env.prod` 등 비밀값 파일 — 커밋하지 않는다. 예시는 `*.env.example` 에만.
 - 다른 파트 디렉터리 — 고칠 일이 생기면 해당 파트 담당과 먼저 맞춘다.
 
