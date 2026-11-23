@@ -1,5 +1,8 @@
-# ktc4-team-24
-카카오테크 캠퍼스 4기 2단계 팀 프로젝트 — 충남대 5팀
+# 든든지기
+GLP-1 투약 단계별 식사 평가 · 코칭 서비스
+
+> 카카오테크 캠퍼스 4기 2단계 팀 프로젝트(충남대 5팀)에서 출발해, 일부 팀원이 이어서 고도화하고 있습니다.
+> 원본 저장소와 기여자: [kakaotechcampus-4/ktc4-chungnam-5](https://github.com/kakaotechcampus-4/ktc4-chungnam-5) · [Contributors](https://github.com/kakaotechcampus-4/ktc4-chungnam-5/graphs/contributors)
 
 <p align="center">
   <a href="https://kakaotechcampus-4.github.io/ktc4-chungnam-5/project/">
@@ -36,7 +39,7 @@ GLP-1 계열 약을 쓰는 사용자가 매 끼니 식사 사진을 올리면, A
 | [`ai/`](ai/) | 음식 인식 · 피드백 생성 · 챗봇 코치 (LLM 호출) | Python 3.12 · FastAPI | [ai/README.md](ai/README.md) |
 | [`infra/`](infra/) | 로컬 Docker Compose · 운영/스테이징 배포 스크립트 · Caddy · 영양DB 시드 | Docker Compose · Caddy · AWS EC2/SSM | [infra/README.md](infra/README.md) |
 | [`docs/`](docs/) | 설계 문서 (Q/Q/S 채점 규칙 등) | | |
-| [`.github/workflows/`](.github/workflows/) | CI (AI 회귀 테스트 · 컨벤션 검사) · 배포 | GitHub Actions | |
+| [`.github/workflows/`](.github/workflows/) | CI (AI 회귀 테스트) · 배포 | GitHub Actions | |
 
 
 ## 로컬 실행
@@ -258,7 +261,7 @@ DB 는 되돌리지 않는다. 호환되지 않는 마이그레이션이 들어�
 
 ```bash
 sudo mkdir -p /opt/glp1 && sudo chown ubuntu:ubuntu /opt/glp1
-git clone https://github.com/kakaotechcampus-4/ktc4-chungnam-5.git /opt/glp1 && cd /opt/glp1/infra
+git clone https://github.com/dundunjigi/dundunjigi.git /opt/glp1 && cd /opt/glp1/infra
 cp .env.prod.example .env.prod && vi .env.prod      # 비밀값은 openssl rand -hex 32 로 만든다
 chmod 600 .env.prod
 ./deploy.sh
